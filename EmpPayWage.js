@@ -1,12 +1,18 @@
 console.log("Welcome to EmpWage computation using JavaScript");
 
-//UC4-Computing The Employee Wage By Usimg For Loop
+//UC5- EmpWage Calculating for max hours or max days 
+//using while loop
+
 const IS_PART_TIME = 1;
 const IS_FULL_TIME = 2;
 const PART_TIME_HOURS = 4;
 const FULL_TIME_HOURS = 8;
 const WAGE_PER_HOUR = 20;
 const WORKING_DAYS = 20;
+const MAX_HOURS_IN_MONTH = 160;
+let totalEmpHrs = 0;
+let totalWorkingDays = 0;
+
 {
     function getWorkingHours(empCheck) {
         switch (empCheck) {
@@ -18,11 +24,11 @@ const WORKING_DAYS = 20;
                 return 0;
         }
     }
-    let empHrs = 0;
-    for (let day = 0; day < WORKING_DAYS; day++) {
+    while (totalEmpHrs <= MAX_HOURS_IN_MONTH && totalWorkingDays <=  WORKING_DAYS) {
+        totalWorkingDays++;
         let empCheck = Math.floor(Math.random() * 10) % 3;
-        empHrs += getWorkingHours(empCheck);
+        totalEmpHrs += getWorkingHours(empCheck);
     }
-    let empWage = empHrs * WAGE_PER_HOUR;
-    console.log("Hours " + empHrs + " Emp Wage " + empWage);
+    let empWage = totalEmpHrs * WAGE_PER_HOUR;
+    console.log("Total Days " + totalWorkingDays + " Hours " + totalEmpHrs + " Emp Wage " + empWage);
 }
