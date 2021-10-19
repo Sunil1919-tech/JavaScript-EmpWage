@@ -34,8 +34,11 @@ function calDailyWage(empHrs) {
         let empCheck = Math.floor(Math.random() * 10) % 3;
         empHrs = getWorkingHours(empCheck);
         totalEmpHrs += empHrs;
+
         empDailyWageArray.push(calDailyWage(empHrs));
+        
     }
     let empWage = calDailyWage(totalEmpHrs);
+
     console.log("Total Days " + totalWorkingDays + " Hours " + totalEmpHrs + " Emp Wage " + empWage);
 }
