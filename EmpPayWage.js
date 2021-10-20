@@ -68,4 +68,23 @@ console.log("Welcome to EmpWage computation using JavaScript");
     console.log("Total Non Working days  : " +nonWorkingDays);
     console.log("Total Full Time Working Days " + fullWorkingDays);
     console.log("Total Part Time Working days " +PartWorkingDays);
+
+    //UC10-The Daily Wage And Dialy Hours By Using Object Creation
+    let empDailyHrsAndDailyWageArr= new Array();
+    while(totalEmpHrs <= MAX_HOURS_IN_MONTH && totalWorkingDays < WORKING_DAYS){
+        totalWorkingDays++;
+        let empCheck = Math.floor(Math.random() * 10) % 3;
+        empHrs = getWorkingHours(empCheck);
+        totalEmpHrs += empHrs;
+        empDailyHrsAndDailyWageArr.push(
+            {
+                dayNum : totalWorkingDays,
+                dailyHours:empHrs,
+                dailyWage: calDailyWage(empHrs),
+                toString(){
+                return '\nDay' + this.dayNum + ' => Working Hours Is ' + this.dailyHours + 'And Wage Earned = ' + this.dailyWage
+                },
+            }); 
+    }
+console.log("Showing Daily Hours Worked And Wage Earned " +empDailyHrsAndDailyWageArr);
 }
